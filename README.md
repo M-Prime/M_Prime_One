@@ -2,8 +2,8 @@
 
 M Prime One is a free 3D printer intended to be simple, low-cost and easy to build and operate.
 
-![https://github.com/diegotrap/M_Prime_One/blob/master/media/2015-05-26%2017.59.35%20edited.jpg]
-![https://github.com/diegotrap/M_Prime_One/blob/master/media/FreeCAD_iso.png]
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/2015-05-26%2017.59.35%20edited.jpg)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/FreeCAD_iso.png)
 
 With the M Prime One, we have designed a 3D printer focusing on three main points:
 
