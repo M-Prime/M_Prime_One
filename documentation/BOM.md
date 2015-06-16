@@ -47,7 +47,7 @@
 | x_axis_end              |        2 |                                                                      |
 | x_motor_support         |        1 |                                                                      |
 | y_rear_end              |        1 |                                                                      |
-| xz_carriage             |        1 | Use the xz_carriage_fixed.stl file that fixes mesh problems          |
+| yz_carriage             |        1 | Use the yz_carriage_fixed.stl file that fixes mesh problems          |
 | z_motor_support         |        1 |                                                                      |
 | arduino_holder          |        2 | Optional. Compatible with Arduino+RAMPS electronics                  |
 | lcd_holder_left         |        1 | Optional. Compatible with Smart Controller LCD                       |
