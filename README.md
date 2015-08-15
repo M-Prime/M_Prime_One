@@ -33,6 +33,21 @@ You can get the files and start sourcing the parts with the content that is alre
 * The complete part list is the Bill Of Materials, or [BOM](https://github.com/diegotrap/M_Prime_One/blob/master/documentation/BOM.md).
 * Finally, until a proper assembly guide is published, you can use the [assembled FreeCAD model](https://github.com/diegotrap/M_Prime_One/blob/master/3D_model/M_Prime_One.fcstd) to help you build the machine.
 
+## Renders
+
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.30.jpg)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.32.jpg)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.36.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.37.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.38.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.39.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.40.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.41.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.42.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.43.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.44.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.45.png)
+
 ## License
 
 The files of this 3D printer project have been released under the Creative Commons Attribution 4.0 license. This license lets you modify and share the sources for any purpose, even commercial, with the only requeriment of giving credit to the author.
