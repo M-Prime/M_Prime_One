@@ -1,0 +1,4 @@
+Taken from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/Bearings/linear_bearings/LM8uu.fcstd
+* Author: Obijuan (Juan González Gómez)

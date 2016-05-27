@@ -1,0 +1,4 @@
+Taken from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/coupling/beam-coupling-5mm-5mm.fcstd
+* Author: Obijuan (Juan González Gómez)

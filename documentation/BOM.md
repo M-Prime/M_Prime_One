@@ -17,7 +17,7 @@
 | MK7 drive gear           |        1 | unit  |                                                                               |
 | Bowden pneumatic fitting |        1 | unit  | Can be substituted with a M4 nut it using the hex nut version of the extruder |
 | Frame                    |        1 | unit  |                                                                               |
-| Bed                      |        1 | unit  | 290x195x3mm aluminium/dibond plate                                            |
+| Bed                      |        1 | unit  | 295x195x3mm aluminium/dibond plate.                                            |
 | Magnets                  |        4 | unit  |                                                                               |
 | 40x40mm fan              |        1 | unit  |                                                                               |
 | Inductive sensor         |        1 | unit  | LJ12A3-4-Z/BY                                                                 |
@@ -31,7 +31,7 @@
 			
 |        Rods       | Quantity | Length |
 | ----------------- | -------- | ------ |
-| X 8mm smooth rod  |        2 | 295mm  |
+| X 8mm smooth rod  |        2 | 300mm  |
 | Y 8mm smooth rod  |        2 | 280mm  |
 | Z 8mm smooth rod  |        2 | 365mm  |
 | Z M5 threaded rod |        1 | 230mm  |

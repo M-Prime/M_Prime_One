@@ -1,0 +1,1 @@
+The PTSone is an extruder designed by Printhatshit. This file has been modeled in FreeCAD from scratch by Diego Trapero based on the physical part designed and manufactured by Printhatshit.

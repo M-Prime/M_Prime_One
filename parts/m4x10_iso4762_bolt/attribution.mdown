@@ -1,0 +1,4 @@
+Made from a file from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the initial file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/Fasteners/Bolts%20%26%20Screws/Metric/ISO4762_Hex_Socket_Head_Cap_Screw_M4x10.fcstd
+* Author: Obijuan (Juan González-Gómez, Diego Trapero

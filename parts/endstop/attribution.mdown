@@ -1,0 +1,4 @@
+Taken from the Prusa i3 Hephestos project (https://github.com/bq/prusa-i3-hephestos).
+
+* URL of the file: https://github.com/bq/prusa-i3-hephestos/blob/master/freecad/non-printable-parts/endstop.fcstd
+* Author: Obijuan, José Luis Villarejo

@@ -1,0 +1,4 @@
+Taken from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/Fasteners/Washers/Metric/DIN%20125%20class%204%20M3%20Flat%20Washer.fcstd
+* Author: diegotrap, Obijuan

@@ -1,0 +1,4 @@
+Taken from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/Fasteners/Bolts%20%26%20Screws/Metric/DIN913_Setscrew_M3x3.fcstd
+* Author: 18turbo

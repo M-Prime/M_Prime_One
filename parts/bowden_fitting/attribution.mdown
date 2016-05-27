@@ -1,0 +1,4 @@
+Made from a file from the FreeCAD-library (https://github.com/FreeCAD/FreeCAD-library).
+
+* URL of the initial file: https://github.com/FreeCAD/FreeCAD-library/blob/master/Mechanical%20Parts/Racor/Racor.fcstd
+* Authors: rcccort, Diego Trapero

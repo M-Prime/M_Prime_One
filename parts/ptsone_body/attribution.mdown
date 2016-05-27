@@ -1,0 +1,4 @@
+The PTSone is an extruder designed by Printhatshit. File taken from the Printhatshit/Prusa-i3-PTS Github repository.
+
+* URL of the file: https://github.com/Printhatshit/Prusa-i3-PTS/tree/master/Freecad
+* Author: Printhatshit
