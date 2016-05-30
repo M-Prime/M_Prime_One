@@ -24,14 +24,13 @@ The features of the M Prime One are:
 * Integrated electronics holder (compatible with RAMPS, can be adapted to any other board)
 * Optional LCD holder (compatible with Smart Controller)
 
-## How to start building an M Prime One
+## How to start building your M Prime One
 
-You can get the files and start sourcing the parts with the content that is already in this repository:
+* Download all the fabrication files (`.stl` for 3D printing and `.dxf` for laser/CNC cut) following our [fabrication file guide](documentation/fabrication_files.md).
+* Check the complete part list is the Bill Of Materials, or [BOM](documentation/BOM.md).
+* You can use the [assembled FreeCAD model](m_prime_one.fcstd) to help you build the machine or if you are comfortable installing modules in FreeCAD see the animated assembly files in our [manuals repository](https://github.com/M-Prime/M_Prime_One_manuals) (soon we will provide assembly videos).
 
-* The frame `.dxf` files for cutting the frame are in the [frame](https://github.com/diegotrap/M_Prime_One/tree/master/3D_model/frame) directory. Read the README to choose one of the frame versions.
-* The printed parts files for printing are in the [printed_parts](https://github.com/diegotrap/M_Prime_One/tree/master/3D_model/printed_parts) directory. Also, read the README files that will guide you through the process of choosing the parts to print.
-* The complete part list is the Bill Of Materials, or [BOM](https://github.com/diegotrap/M_Prime_One/blob/master/documentation/BOM.md).
-* Finally, until a proper assembly guide is published, you can use the [assembled FreeCAD model](https://github.com/diegotrap/M_Prime_One/blob/master/3D_model/M_Prime_One.fcstd) to help you build the machine.
+And you can take a look at our [How to build an M Prime One guide](http://mprime.io/how-to-build-an-m-prime-one/), source some of the parts from our store and help the project =)
 
 ## Renders
 
