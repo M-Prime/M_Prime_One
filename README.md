@@ -9,7 +9,7 @@ With the M Prime One, we have designed a 3D printer focusing on three main point
 
 * **Free design**. The printer have been designed from scratch in a free 3D software: FreeCAD. All the files have been published under the less restrictive license we have found (CC BY 4.0). This way anybody can download the files, modify them and use them for their own purposes.
 * **Simplicity**. The design has few different parts (for example, cold bed, 4 motors, just two types of screws and one type of radial bearings) in an effort to reduce building complexity, cost and maintenance.
-* **Documentation**. This is still a work in progress, but the printer will be accompanied by assembly guides, firmware, slicing profiles, Q&A site...
+* **Documentation**. Apart from the files, you can find the printer firmware, list of materials, slicing profiles... in this repository, receive support in our [Q&A site](http://mprime.io/questions/) and soon read the complete assembly manual in the [manuals repository](https://github.com/M-Prime/M_Prime_One_manuals).
 
 ## Features
 
