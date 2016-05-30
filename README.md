@@ -2,8 +2,7 @@
 
 M Prime One is a free 3D printer intended to be simple, low-cost and easy to build and operate.
 
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/2015-05-26%2017.59.35%20edited.jpg)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/FreeCAD_iso.png)
+![](https://github.com/diegotrap/M_Prime_One/blob/master/media/FreeCAD.png)
 
 With the M Prime One, we have designed a 3D printer focusing on three main points:
 
@@ -31,21 +30,6 @@ The features of the M Prime One are:
 * You can use the [assembled FreeCAD model](m_prime_one.fcstd) to help you build the machine or if you are comfortable installing modules in FreeCAD see the animated assembly files in our [manuals repository](https://github.com/M-Prime/M_Prime_One_manuals) (soon we will provide assembly videos).
 
 And you can take a look at our [How to build an M Prime One guide](http://mprime.io/how-to-build-an-m-prime-one/), source some of the parts from our store and help the project =)
-
-## Renders
-
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.30.jpg)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.32.jpg)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.36.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.37.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.38.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.39.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.40.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.41.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.42.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.43.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.44.png)
-![](https://github.com/diegotrap/M_Prime_One/blob/master/media/renders/M Prime One.45.png)
 
 ## License
 
