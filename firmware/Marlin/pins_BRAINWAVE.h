@@ -1,4 +1,26 @@
 /**
+ * Marlin 3D Printer Firmware
+ * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ *
+ * Based on Sprinter and grbl.
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/**
  * Brainwave 1.0 pin assignments (AT90USB646)
  *
  * Requires hardware bundle for Arduino:
@@ -6,10 +28,10 @@
  */
 
 #ifndef __AVR_AT90USB646__
-  #error Oops!  Make sure you have 'Brainwave' selected from the 'Tools -> Boards' menu.
+  #error "Oops!  Make sure you have 'Brainwave' selected from the 'Tools -> Boards' menu."
 #endif
 
-#define AT90USB 646  // Disable MarlinSerial etc.
+#define BOARD_NAME         "Brainwave"
 
 #define X_STEP_PIN         27
 #define X_DIR_PIN          29
@@ -35,27 +57,10 @@
 #define E0_ATT_PIN         20
 
 #define HEATER_0_PIN        4  // Extruder
-#define HEATER_1_PIN       -1
-#define HEATER_2_PIN       -1
 #define HEATER_BED_PIN     38  // Bed
 #define FAN_PIN             3  // Fan
 
 #define TEMP_0_PIN          7  // Extruder / Analog pin numbering
-#define TEMP_1_PIN         -1
-#define TEMP_2_PIN         -1
 #define TEMP_BED_PIN        6  // Bed / Analog pin numbering
 
-#define SDPOWER            -1
-#define SDSS               -1
 #define LED_PIN            39
-#define PS_ON_PIN          -1
-#define KILL_PIN           -1
-#define ALARM_PIN          -1
-
-#ifndef SDSUPPORT
-  // these pins are defined in the SD library if building with SD support
-  #define SCK_PIN           9
-  #define MISO_PIN         11
-  #define MOSI_PIN         10
-#endif
-

@@ -1,34 +1,55 @@
 /**
+ * Marlin 3D Printer Firmware
+ * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ *
+ * Based on Sprinter and grbl.
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/**
  * TEST
  *
  * LCD Menu Messages
- * See also documentation/LCDLanguageFont.md
+ * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
  *
  */
 #ifndef LANGUAGE_TEST_H
 #define LANGUAGE_TEST_H
 
-// Select ONE of the following Mappers. 
-// They decide what to do with a symbol in the area of [0x80:0xFF]. They take a symbol of this language file and make them point 
+// Select ONE of the following Mappers.
+// They decide what to do with a symbol in the area of [0x80:0xFF]. They take a symbol of this language file and make them point
 // into an array with 128 cells, where they'll find the place of the symbol of the font in use.
 //
-// a.)For ASCII coded Language_xx.h files like (en) there are no occurrences of symbols above 0x7F so no mapper is needed. 
+// a.)For ASCII coded Language_xx.h files like (en) there are no occurrences of symbols above 0x7F so no mapper is needed.
 //   If such a symbol appears it is mapped directly into the font. This is the case for the language files we used until now, with all the STR_XX or
 //   "\xxx" symbols. All Symbols are only one byte long.
-// b.) For Unicoded Language_xx.h files (currently ru, de and kana_utf8 ) the non ASCII [0x00-0x7F] symbols are represented by more then one byte.
+// b.) For Unicoded Language_xx.h files (currently ru, de and kana_utf8 ) the non ASCII [0x00-0x7F] symbols are represented by more than one byte.
 //   In the case of two bytes the first is pointing to a 'codepage' and the second to a place in the codepage. These codepages contain 64 symbols.
-//   So two of them can be mapped. For most of the European languages the necessary symbols are contained in the pages C2 and C3. Cyrillic uses D0 
+//   So two of them can be mapped. For most of the European languages the necessary symbols are contained in the pages C2 and C3. Cyrillic uses D0
 //   and D1.
 // c.) For katakana (one of the Japanese symbol sets) Unicode uses 3 bytes. Here the second byte also points to a codepage and byte 3 to the symbol.
 //   I hope the pages E282 and E283 are sufficient to write katakana.
 //   Kanji (an other Japanese symbol set) uses far more than two codepages. So currently I don't see a chance to map the Unicodes. Its not
 //   impossible to have a close to direct mapping but will need giant conversion tables and fonts (we don't want to have in a embedded system).
 
-
-#define MAPPER_NON         // For direct asci codes ( until now all languages except ru, de, fi, kana_utf8, ... )
 //#define MAPPER_C2C3        // For most European languages when language file is in utf8
 //#define MAPPER_D0D1        // For Cyrillic
 //#define MAPPER_E382E383    // For Katakana
+//#define MAPPER_NON         // For direct ascii codes. Fall back mapper - if no other is defined.
 
 // Define SIMULATE_ROMFONT to see what is seen on the character based display defined in Configuration.h
 //#define SIMULATE_ROMFONT
@@ -36,6 +57,7 @@
 // Select the better font for full graphic displays.
 //#define DISPLAY_CHARSET_ISO10646_1
 //#define DISPLAY_CHARSET_ISO10646_5
+//#define DISPLAY_CHARSET_ISO10646_GREEK
 //#define DISPLAY_CHARSET_ISO10646_KANA
 
 
@@ -100,7 +122,7 @@
 #define STRG_OKTAL_e "\340\341\342\343\344\345\346\347\350\351\352\353\354\355\356\357"
 #define STRG_OKTAL_f "\360\361\362\363\364\365\366\367\370\371\372\373\374\375\376\377"
 
-#ifdef DISPLAYTEST
+#if ENABLED(DISPLAYTEST)
   #define WELCOME_MSG                         "Language TEST"
 
   #define MSG_WATCH                           "Display test"
@@ -108,7 +130,7 @@
   #define MSG_CONTROL                         STRG_OKTAL_c
 #endif
 
-#ifdef WEST
+#if ENABLED(WEST)
   #define WELCOME_MSG                         "Language TEST"
 
   #define MSG_WATCH                           "\001\002\003\004\005\006\007\010\011"
@@ -119,19 +141,19 @@
   #define MSG_DISABLE_STEPPERS                STRG_C2_8
   #define MSG_AUTO_HOME                       STRG_C2_9
   #define MSG_SET_HOME_OFFSETS                STRG_C2_a
-  #define MSG_PREHEAT_PLA                     STRG_C2_b
-  #define MSG_PREHEAT_ABS                     STRG_C3_8
+  #define MSG_PREHEAT_1                       STRG_C2_b
+  #define MSG_PREHEAT_2                       STRG_C3_8
   #define MSG_COOLDOWN                        STRG_C3_9
   #define MSG_SWITCH_PS_OFF                   STRG_C3_a
   #define MSG_MOVE_AXIS                       STRG_C3_b
-  
+
   #define MSG_MAIN                            STRG_OKTAL_2
   #define MSG_TEMPERATURE                     STRG_OKTAL_3
   #define MSG_MOTION                          STRG_OKTAL_4
   #define MSG_VOLUMETRIC                      STRG_OKTAL_5
   #define MSG_CONTRAST                        STRG_OKTAL_6
   #define MSG_RESTORE_FAILSAFE                STRG_OKTAL_7
-  
+
   #define MSG_NOZZLE                          STRG_OKTAL_8
   #define MSG_FAN_SPEED                       STRG_OKTAL_9
   #define MSG_AUTOTEMP                        STRG_OKTAL_a
@@ -143,7 +165,7 @@
 
 #endif
 
-#ifdef CYRIL
+#if ENABLED(CYRIL)
   #define WELCOME_MSG                         "Language TEST"
 
   #define MSG_WATCH                           "\001\002\003\004\005\006\007\010\011"
@@ -154,19 +176,19 @@
   #define MSG_DISABLE_STEPPERS                STRG_D0_8
   #define MSG_AUTO_HOME                       STRG_D0_9
   #define MSG_SET_HOME_OFFSETS                STRG_D0_a
-  #define MSG_PREHEAT_PLA                     STRG_D0_b
-  #define MSG_PREHEAT_ABS                     STRG_D1_8
+  #define MSG_PREHEAT_1                       STRG_D0_b
+  #define MSG_PREHEAT_2                       STRG_D1_8
   #define MSG_COOLDOWN                        STRG_D1_9
   #define MSG_SWITCH_PS_OFF                   STRG_D1_a
   #define MSG_MOVE_AXIS                       STRG_D1_b
-  
+
   #define MSG_MAIN                            STRG_OKTAL_2
   #define MSG_TEMPERATURE                     STRG_OKTAL_3
   #define MSG_MOTION                          STRG_OKTAL_4
   #define MSG_VOLUMETRIC                      STRG_OKTAL_5
   #define MSG_CONTRAST                        STRG_OKTAL_6
   #define MSG_RESTORE_FAILSAFE                STRG_OKTAL_7
-  
+
   #define MSG_NOZZLE                          STRG_OKTAL_8
   #define MSG_FAN_SPEED                       STRG_OKTAL_9
   #define MSG_AUTOTEMP                        STRG_OKTAL_a
@@ -178,7 +200,7 @@
 
 #endif
 
-#if defined( KANA )
+#if ENABLED(KANA)
   #define WELCOME_MSG                         "Language TEST"
 
   #define MSG_WATCH                           "\001\002\003\004\005\006\007\010\011"
@@ -189,19 +211,19 @@
   #define MSG_DISABLE_STEPPERS                STRG_E382_8
   #define MSG_AUTO_HOME                       STRG_E382_9
   #define MSG_SET_HOME_OFFSETS                STRG_E382_a
-  #define MSG_PREHEAT_PLA                     STRG_E382_b
-  #define MSG_PREHEAT_ABS                     STRG_E383_8
+  #define MSG_PREHEAT_1                       STRG_E382_b
+  #define MSG_PREHEAT_2                       STRG_E383_8
   #define MSG_COOLDOWN                        STRG_E383_9
   #define MSG_SWITCH_PS_OFF                   STRG_E383_a
   #define MSG_MOVE_AXIS                       STRG_E383_b
-  
+
   #define MSG_MAIN                            STRG_OKTAL_2
   #define MSG_TEMPERATURE                     STRG_OKTAL_3
   #define MSG_MOTION                          STRG_OKTAL_4
   #define MSG_VOLUMETRIC                      STRG_OKTAL_5
   #define MSG_CONTRAST                        STRG_OKTAL_6
   #define MSG_RESTORE_FAILSAFE                STRG_OKTAL_7
-  
+
   #define MSG_NOZZLE                          STRG_OKTAL_8
   #define MSG_FAN_SPEED                       STRG_OKTAL_9
   #define MSG_AUTOTEMP                        STRG_OKTAL_a

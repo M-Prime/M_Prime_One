@@ -1,105 +1,96 @@
+/**
+ * Marlin 3D Printer Firmware
+ * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ *
+ * Based on Sprinter and grbl.
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
 
-#include "Configuration.h"
+#include "MarlinConfig.h"
 
-#define LANGUAGE_CONCAT(M)       #M
-#define GENERATE_LANGUAGE_INCLUDE(M)  LANGUAGE_CONCAT(language_##M.h)
+// Fallback if no language is set. DON'T CHANGE
+#ifndef LCD_LANGUAGE
+  #define LCD_LANGUAGE en
+#endif
 
+// For character-based LCD controllers (DISPLAY_CHARSET_HD44780)
+#define JAPANESE 1
+#define WESTERN  2
+#define CYRILLIC 3
 
 // NOTE: IF YOU CHANGE LANGUAGE FILES OR MERGE A FILE WITH CHANGES
 //
 //   ==> ALWAYS TRY TO COMPILE MARLIN WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h"
 //   ==> ALSO TRY ALL AVAILABLE LANGUAGE OPTIONS
-// See also documentation/LCDLanguageFont.md
+// See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
 
 // Languages
-// en       English
-// pl       Polish
-// fr       French
-// de       German
-// es       Spanish
-// ru       Russian
-// it       Italian
-// pt       Portuguese
-// pt-br    Portuguese (Brazil)
-// fi       Finnish
-// an       Aragonese
-// nl       Dutch
-// ca       Catalan
-// eu       Basque-Euskera
-// kana     Japanese
-// kana_utf Japanese
+// an         Aragonese
+// bg         Bulgarian
+// ca         Catalan
+// cn         Chinese
+// cz         Czech
+// de         German
+// el         Greek
+// el-gr      Greek (Greece)
+// en         English
+// es         Spanish
+// eu         Basque-Euskera
+// fi         Finnish
+// fr         French
+// gl         Galician
+// hr         Croatian
+// it         Italian
+// kana       Japanese
+// kana_utf8  Japanese (UTF8)
+// nl         Dutch
+// pl         Polish
+// pt         Portuguese
+// pt-br      Portuguese (Brazilian)
+// pt-br_utf8 Portuguese (Brazilian UTF8)
+// pt_utf8    Portuguese (UTF8)
+// ru         Russian
 
-#ifndef LANGUAGE_INCLUDE
-  // pick your language from the list above
-  #define LANGUAGE_INCLUDE GENERATE_LANGUAGE_INCLUDE(en)
-#endif
-
-#ifdef HAS_AUTOMATIC_VERSIONING
-  #include "_Version.h"
-#endif
-
-#define PROTOCOL_VERSION "1.0"
-
-#if MB(ULTIMAKER)|| MB(ULTIMAKER_OLD)|| MB(ULTIMAIN_2)
-  #define MACHINE_NAME "Ultimaker"
-  #define FIRMWARE_URL "http://firmware.ultimaker.com"
-#elif MB(RUMBA)
-  #define MACHINE_NAME "Rumba"
-#elif MB(3DRAG)
-  #define MACHINE_NAME "3Drag"
-  #define FIRMWARE_URL "http://3dprint.elettronicain.it/"
-#elif MB(K8200)
-  #define MACHINE_NAME "K8200"
-#elif MB(5DPRINT)
-  #define MACHINE_NAME "Makibox"
-#elif MB(SAV_MKI)
-  #define MACHINE_NAME "SAV MkI"
-  #define FIRMWARE_URL "https://github.com/fmalpartida/Marlin/tree/SAV-MkI-config"
-#elif MB(WITBOX)
-  #define MACHINE_NAME "WITBOX"
-  #define FIRMWARE_URL "http://www.bq.com/gb/downloads-witbox.html"
-#elif MB(HEPHESTOS)
-  #define MACHINE_NAME "HEPHESTOS"
-  #define FIRMWARE_URL "http://www.bq.com/gb/downloads-prusa-i3-hephestos.html"
-#elif MB(BRAINWAVE_PRO)
-  #define MACHINE_NAME "Kossel Pro"
-  #ifndef FIRMWARE_URL
-    #define FIRMWARE_URL "https://github.com/OpenBeamUSA/Marlin/"
-  #endif
-#else
-  #ifndef MACHINE_NAME
-    #define MACHINE_NAME "3D Printer"
-  #endif
-#endif
-
-#ifdef CUSTOM_MENDEL_NAME
-  #error CUSTOM_MENDEL_NAME deprecated - use CUSTOM_MACHINE_NAME
-  #define CUSTOM_MACHINE_NAME CUSTOM_MENDEL_NAME
+#ifdef DEFAULT_SOURCE_CODE_URL
+  #undef  SOURCE_CODE_URL
+  #define SOURCE_CODE_URL DEFAULT_SOURCE_CODE_URL
 #endif
 
 #ifdef CUSTOM_MACHINE_NAME
-  #undef MACHINE_NAME
+  #undef  MACHINE_NAME
   #define MACHINE_NAME CUSTOM_MACHINE_NAME
-#endif
-
-#ifndef FIRMWARE_URL
-  #define FIRMWARE_URL "https://github.com/MarlinFirmware/Marlin"
-#endif
-
-#ifndef BUILD_VERSION
-  #define BUILD_VERSION "V1; Sprinter/grbl mashup for gen6"
+#else
+  #ifdef DEFAULT_MACHINE_NAME
+    #undef  MACHINE_NAME
+    #define MACHINE_NAME DEFAULT_MACHINE_NAME
+  #endif
 #endif
 
 #ifndef MACHINE_UUID
-   #define MACHINE_UUID "00000000-0000-0000-0000-000000000000"
+  #define MACHINE_UUID DEFAULT_MACHINE_UUID
 #endif
 
-
-#define STRINGIFY_(n) #n
-#define STRINGIFY(n) STRINGIFY_(n)
-
+#ifdef DEFAULT_WEBSITE_URL
+  #undef  WEBSITE_URL
+  #define WEBSITE_URL DEFAULT_WEBSITE_URL
+#endif
 
 // Common LCD messages
 
@@ -121,6 +112,8 @@
 #define MSG_FREE_MEMORY                     " Free Memory: "
 #define MSG_PLANNER_BUFFER_BYTES            "  PlannerBufferBytes: "
 #define MSG_OK                              "ok"
+#define MSG_WAIT                            "wait"
+#define MSG_STATS                           "Stats: "
 #define MSG_FILE_SAVED                      "Done saving file."
 #define MSG_ERR_LINE_NO                     "Line Number is not Last Line Number+1, Last Line: "
 #define MSG_ERR_CHECKSUM_MISMATCH           "checksum mismatch, Last Line: "
@@ -129,26 +122,20 @@
 #define MSG_FILE_PRINTED                    "Done printing file"
 #define MSG_BEGIN_FILE_LIST                 "Begin file list"
 #define MSG_END_FILE_LIST                   "End file list"
-#define MSG_M104_INVALID_EXTRUDER           "M104 Invalid extruder "
-#define MSG_M105_INVALID_EXTRUDER           "M105 Invalid extruder "
-#define MSG_M200_INVALID_EXTRUDER           "M200 Invalid extruder "
-#define MSG_M218_INVALID_EXTRUDER           "M218 Invalid extruder "
-#define MSG_M221_INVALID_EXTRUDER           "M221 Invalid extruder "
+#define MSG_INVALID_EXTRUDER                "Invalid extruder"
+#define MSG_INVALID_SOLENOID                "Invalid solenoid"
 #define MSG_ERR_NO_THERMISTORS              "No thermistors - no temperature"
-#define MSG_M109_INVALID_EXTRUDER           "M109 Invalid extruder "
-#define MSG_HEATING                         "Heating..."
-#define MSG_HEATING_COMPLETE                "Heating done."
-#define MSG_BED_HEATING                     "Bed Heating."
-#define MSG_BED_DONE                        "Bed done."
-#define MSG_M115_REPORT                     "FIRMWARE_NAME:Marlin " BUILD_VERSION " FIRMWARE_URL:" FIRMWARE_URL " PROTOCOL_VERSION:" PROTOCOL_VERSION " MACHINE_TYPE:" MACHINE_NAME " EXTRUDER_COUNT:" STRINGIFY(EXTRUDERS) " UUID:" MACHINE_UUID "\n"
+#define MSG_M115_REPORT                     "FIRMWARE_NAME:Marlin " DETAILED_BUILD_VERSION " SOURCE_CODE_URL:" SOURCE_CODE_URL " PROTOCOL_VERSION:" PROTOCOL_VERSION " MACHINE_TYPE:" MACHINE_NAME " EXTRUDER_COUNT:" STRINGIFY(EXTRUDERS) " UUID:" MACHINE_UUID EMERGENCY_PARSER_CAPABILITIES "\n"
 #define MSG_COUNT_X                         " Count X: "
+#define MSG_COUNT_A                         " Count A: "
 #define MSG_ERR_KILLED                      "Printer halted. kill() called!"
 #define MSG_ERR_STOPPED                     "Printer stopped due to errors. Fix the error and use M999 to restart. (Temperature is reset. Set it after restarting)"
+#define MSG_BUSY_PROCESSING                 "busy: processing"
+#define MSG_BUSY_PAUSED_FOR_USER            "busy: paused for user"
+#define MSG_BUSY_PAUSED_FOR_INPUT           "busy: paused for input"
 #define MSG_RESEND                          "Resend: "
 #define MSG_UNKNOWN_COMMAND                 "Unknown command: \""
 #define MSG_ACTIVE_EXTRUDER                 "Active Extruder: "
-#define MSG_INVALID_EXTRUDER                "Invalid extruder"
-#define MSG_INVALID_SOLENOID                "Invalid solenoid"
 #define MSG_X_MIN                           "x_min: "
 #define MSG_X_MAX                           "x_max: "
 #define MSG_Y_MIN                           "y_min: "
@@ -157,12 +144,18 @@
 #define MSG_Z_MAX                           "z_max: "
 #define MSG_Z2_MAX                          "z2_max: "
 #define MSG_Z_PROBE                         "z_probe: "
+#define MSG_ERR_MATERIAL_INDEX              "M145 S<index> out of range (0-1)"
+#define MSG_ERR_M421_PARAMETERS             "M421 requires XYZ or IJZ parameters"
+#define MSG_ERR_MESH_XY                     "Mesh XY or IJ cannot be resolved"
+#define MSG_ERR_M428_TOO_FAR                "Too far from reference point"
+#define MSG_ERR_M303_DISABLED               "PIDTEMP disabled"
 #define MSG_M119_REPORT                     "Reporting endstop status"
 #define MSG_ENDSTOP_HIT                     "TRIGGERED"
 #define MSG_ENDSTOP_OPEN                    "open"
 #define MSG_HOTEND_OFFSET                   "Hotend offsets:"
+#define MSG_DUPLICATION_MODE                "Duplication mode: "
 
-#define MSG_SD_CANT_OPEN_SUBDIR             "Cannot open subdir"
+#define MSG_SD_CANT_OPEN_SUBDIR             "Cannot open subdir "
 #define MSG_SD_INIT_FAIL                    "SD init fail"
 #define MSG_SD_VOL_INIT_FAIL                "volume.init failed"
 #define MSG_SD_OPENROOT_FAIL                "openRoot failed"
@@ -176,12 +169,14 @@
 #define MSG_SD_PRINTING_BYTE                "SD printing byte "
 #define MSG_SD_NOT_PRINTING                 "Not SD printing"
 #define MSG_SD_ERR_WRITE_TO_FILE            "error writing to file"
+#define MSG_SD_ERR_READ                     "SD read error"
 #define MSG_SD_CANT_ENTER_SUBDIR            "Cannot enter subdir: "
 
 #define MSG_STEPPER_TOO_HIGH                "Steprate too high: "
 #define MSG_ENDSTOPS_HIT                    "endstops hit: "
 #define MSG_ERR_COLD_EXTRUDE_STOP           " cold extrusion prevented"
 #define MSG_ERR_LONG_EXTRUDE_STOP           " too long extrusion prevented"
+#define MSG_TOO_COLD_FOR_M600               "M600 Hotend too cold to change filament"
 #define MSG_BABYSTEPPING_X                  "Babystepping X"
 #define MSG_BABYSTEPPING_Y                  "Babystepping Y"
 #define MSG_BABYSTEPPING_Z                  "Babystepping Z"
@@ -206,8 +201,8 @@
 #define MSG_KP                              " Kp: "
 #define MSG_KI                              " Ki: "
 #define MSG_KD                              " Kd: "
-#define MSG_OK_B                            "ok B:"
-#define MSG_OK_T                            "ok T:"
+#define MSG_B                               "B:"
+#define MSG_T                               "T:"
 #define MSG_AT                              " @:"
 #define MSG_PID_AUTOTUNE_FINISHED           MSG_PID_AUTOTUNE " finished! Put the last Kp, Ki and Kd constants from below into Configuration.h"
 #define MSG_PID_DEBUG                       " PID_DEBUG "
@@ -216,23 +211,34 @@
 #define MSG_PID_DEBUG_PTERM                 " pTerm "
 #define MSG_PID_DEBUG_ITERM                 " iTerm "
 #define MSG_PID_DEBUG_DTERM                 " dTerm "
-#define MSG_HEATING_FAILED                  "Heating failed"
-#define MSG_EXTRUDER_SWITCHED_OFF           "Extruder switched off. Temperature difference between temp sensors is too high !"
-
+#define MSG_PID_DEBUG_CTERM                 " cTerm "
 #define MSG_INVALID_EXTRUDER_NUM            " - Invalid extruder number !"
-#define MSG_THERMAL_RUNAWAY_STOP            "Thermal Runaway, system stopped! Heater_ID: "
-#define MSG_SWITCHED_OFF_MAX                " switched off. MAXTEMP triggered !!"
-#define MSG_MINTEMP_EXTRUDER_OFF            ": Extruder switched off. MINTEMP triggered !"
-#define MSG_MAXTEMP_EXTRUDER_OFF            ": Extruder" MSG_SWITCHED_OFF_MAX
-#define MSG_MAXTEMP_BED_OFF                 "Heated bed" MSG_SWITCHED_OFF_MAX
+
+#define MSG_HEATER_BED                      "bed"
+#define MSG_STOPPED_HEATER                  ", system stopped! Heater_ID: "
+#define MSG_REDUNDANCY                      "Heater switched off. Temperature difference between temp sensors is too high !"
+#define MSG_T_HEATING_FAILED                "Heating failed"
+#define MSG_T_THERMAL_RUNAWAY               "Thermal Runaway"
+#define MSG_T_MAXTEMP                       "MAXTEMP triggered"
+#define MSG_T_MINTEMP                       "MINTEMP triggered"
+
+// Debug
+#define MSG_DEBUG_PREFIX                    "DEBUG:"
+#define MSG_DEBUG_OFF                       "off"
+#define MSG_DEBUG_ECHO                      "ECHO"
+#define MSG_DEBUG_INFO                      "INFO"
+#define MSG_DEBUG_ERRORS                    "ERRORS"
+#define MSG_DEBUG_DRYRUN                    "DRYRUN"
+#define MSG_DEBUG_COMMUNICATION             "COMMUNICATION"
+#define MSG_DEBUG_LEVELING                  "LEVELING"
 
 // LCD Menu Messages
 
-#if !(defined( DISPLAY_CHARSET_HD44780_JAPAN ) || defined( DISPLAY_CHARSET_HD44780_WESTERN ) || defined( DISPLAY_CHARSET_HD44780_CYRILLIC ))
-  #define DISPLAY_CHARSET_HD44780_JAPAN
-#endif
+#define LANGUAGE_INCL_(M) STRINGIFY_(language_##M.h)
+#define LANGUAGE_INCL(M) LANGUAGE_INCL_(M)
+#define INCLUDE_LANGUAGE LANGUAGE_INCL(LCD_LANGUAGE)
 
-#include LANGUAGE_INCLUDE
+#include INCLUDE_LANGUAGE
 #include "language_en.h"
 
 #endif //__LANGUAGE_H

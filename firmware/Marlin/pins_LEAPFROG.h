@@ -1,10 +1,34 @@
 /**
+ * Marlin 3D Printer Firmware
+ * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ *
+ * Based on Sprinter and grbl.
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/**
  * Leapfrog Driver board pin assignments
  */
 
 #if !defined(__AVR_ATmega1280__) && !defined(__AVR_ATmega2560__)
-  #error Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu.
+  #error "Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu."
 #endif
+
+#define BOARD_NAME         "Leapfrog"
 
 #define X_STEP_PIN         28
 #define X_DIR_PIN          63
@@ -32,21 +56,9 @@
 #define E1_DIR_PIN          40 //40
 #define E1_ENABLE_PIN       36 //36
 
-#define Y2_STEP_PIN         37
-#define Y2_DIR_PIN          40
-#define Y2_ENABLE_PIN       36
-
-#define Z2_STEP_PIN         37
-#define Z2_DIR_PIN          40
-#define Z2_ENABLE_PIN       36
-
-#define SDPOWER            -1
 #define SDSS               11
-#define SDCARDDETECT       -1 // 10 optional also used as mode pin
 #define LED_PIN            13
 #define FAN_PIN            7
-#define PS_ON_PIN          -1
-#define KILL_PIN           -1
 #define SOL1_PIN   16
 #define SOL2_PIN    17
 
@@ -55,7 +67,6 @@
 #define HEATER_2_PIN       11 //-1 // 13
 #define TEMP_0_PIN         13 //D27   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!!
 #define TEMP_1_PIN         15 // 1
-#define TEMP_2_PIN         -1 // 2
 #define HEATER_BED_PIN     10 // 14/15
 #define TEMP_BED_PIN       14 // 1,2 or I2C
 /*  Unused (1) (2) (3) 4 5 6 7 8 9 10 11 12 13 (14) (15) (16) 17 (18) (19) (20) (21) (22) (23) 24 (25) (26) (27) 28 (29) (30) (31)  */

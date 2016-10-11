@@ -1,14 +1,35 @@
 /**
+ * Marlin 3D Printer Firmware
+ * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ *
+ * Based on Sprinter and grbl.
+ * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/**
  * Aragonese
  *
  * LCD Menu Messages
- * See also documentation/LCDLanguageFont.md
+ * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
  *
  */
 #ifndef LANGUAGE_AN_H
 #define LANGUAGE_AN_H
 
-#define MAPPER_NON
 // Define SIMULATE_ROMFONT to see what is seen on the character based display defined in Configuration.h
 //#define SIMULATE_ROMFONT
 #define DISPLAY_CHARSET_ISO10646_1
@@ -20,18 +41,23 @@
 #define MSG_AUTOSTART                       " Autostart"
 #define MSG_DISABLE_STEPPERS                "Amortar motors"
 #define MSG_AUTO_HOME                       "Levar a l'orichen"
+#define MSG_LEVEL_BED_HOMING                "Homing XYZ"
+#define MSG_LEVEL_BED_WAITING               "Click to Begin"
+#define MSG_LEVEL_BED_DONE                  "Leveling Done!"
+#define MSG_LEVEL_BED_CANCEL                "Cancel"
 #define MSG_SET_HOME_OFFSETS                "Set home offsets"
+#define MSG_HOME_OFFSETS_APPLIED            "Offsets applied"
 #define MSG_SET_ORIGIN                      "Establir zero"
-#define MSG_PREHEAT_PLA                     "Precalentar PLA"
-#define MSG_PREHEAT_PLA_N                   "Precalentar PLA "
-#define MSG_PREHEAT_PLA_ALL                 "Precalentar PLA a"
-#define MSG_PREHEAT_PLA_BEDONLY             "Prec. PLA Base"
-#define MSG_PREHEAT_PLA_SETTINGS            "Achustar tem. PLA"
-#define MSG_PREHEAT_ABS                     "Precalentar ABS"
-#define MSG_PREHEAT_ABS_N                   "Precalentar ABS "
-#define MSG_PREHEAT_ABS_ALL                 "Precalentar ABS a"
-#define MSG_PREHEAT_ABS_BEDONLY             "Prec. ABS Base"
-#define MSG_PREHEAT_ABS_SETTINGS            "Achustar tem. ABS"
+#define MSG_PREHEAT_1                       "Precalentar PLA"
+#define MSG_PREHEAT_1_N                     "Precalentar PLA "
+#define MSG_PREHEAT_1_ALL                   "Precalentar PLA a"
+#define MSG_PREHEAT_1_BEDONLY               "Prec. PLA Base"
+#define MSG_PREHEAT_1_SETTINGS              "Achustar tem. PLA"
+#define MSG_PREHEAT_2                       "Precalentar ABS"
+#define MSG_PREHEAT_2_N                     "Precalentar ABS "
+#define MSG_PREHEAT_2_ALL                   "Precalentar ABS a"
+#define MSG_PREHEAT_2_BEDONLY               "Prec. ABS Base"
+#define MSG_PREHEAT_2_SETTINGS              "Achustar tem. ABS"
 #define MSG_COOLDOWN                        "Enfriar"
 #define MSG_SWITCH_PS_ON                    "Enchegar Fuent"
 #define MSG_SWITCH_PS_OFF                   "Desenchegar Fuent"
@@ -66,10 +92,10 @@
 #define MSG_VZ_JERK                         "Vz-jerk"
 #define MSG_VE_JERK                         "Ves-jerk"
 #define MSG_VMAX                            "Vmax"
-#define MSG_X                               "x"
-#define MSG_Y                               "y"
-#define MSG_Z                               "z"
-#define MSG_E                               "y"
+#define MSG_X                               "X"
+#define MSG_Y                               "Y"
+#define MSG_Z                               "Z"
+#define MSG_E                               "E"
 #define MSG_VMIN                            "Vmin"
 #define MSG_VTRAV_MIN                       "VTrav min"
 #define MSG_AMAX                            "Amax"
@@ -81,10 +107,8 @@
 #define MSG_TEMPERATURE                     "Temperatura"
 #define MSG_MOTION                          "Movimiento"
 #define MSG_VOLUMETRIC                      "Filament"
-#define MSG_VOLUMETRIC_ENABLED		        "E in mm3"
-#define MSG_FILAMENT_SIZE_EXTRUDER_0        "Fil. Dia. 1"
-#define MSG_FILAMENT_SIZE_EXTRUDER_1        "Fil. Dia. 2"
-#define MSG_FILAMENT_SIZE_EXTRUDER_2        "Fil. Dia. 3"
+#define MSG_VOLUMETRIC_ENABLED              "E in mm3"
+#define MSG_FILAMENT_DIAM                   "Fil. Dia."
 #define MSG_CONTRAST                        "Contrast"
 #define MSG_STORE_EPROM                     "Alzar Memoria"
 #define MSG_LOAD_EPROM                      "Cargar Memoria"
@@ -117,21 +141,17 @@
 #define MSG_INIT_SDCARD                     "Encetan. tarcheta"
 #define MSG_CNG_SDCARD                      "Cambiar tarcheta"
 #define MSG_ZPROBE_OUT                      "Z probe out. bed"
-#define MSG_POSITION_UNKNOWN                "Home X/Y before Z"
+#define MSG_HOME                            "Home"  // Used as MSG_HOME " " MSG_X MSG_Y MSG_Z " " MSG_FIRST
+#define MSG_FIRST                           "first"
 #define MSG_ZPROBE_ZOFFSET                  "Z Offset"
 #define MSG_BABYSTEP_X                      "Babystep X"
 #define MSG_BABYSTEP_Y                      "Babystep Y"
 #define MSG_BABYSTEP_Z                      "Babystep Z"
 #define MSG_ENDSTOP_ABORT                   "Endstop abort"
-#define MSG_END_HOUR                        "hours"
-#define MSG_END_MINUTE                      "minutes"
-
-#ifdef DELTA_CALIBRATION_MENU
-    #define MSG_DELTA_CALIBRATE             "Delta Calibration"
-    #define MSG_DELTA_CALIBRATE_X           "Calibrate X"
-    #define MSG_DELTA_CALIBRATE_Y           "Calibrate Y"
-    #define MSG_DELTA_CALIBRATE_Z           "Calibrate Z"
-    #define MSG_DELTA_CALIBRATE_CENTER      "Calibrate Center"
-#endif // DELTA_CALIBRATION_MENU
+#define MSG_DELTA_CALIBRATE                 "Delta Calibration"
+#define MSG_DELTA_CALIBRATE_X               "Calibrate X"
+#define MSG_DELTA_CALIBRATE_Y               "Calibrate Y"
+#define MSG_DELTA_CALIBRATE_Z               "Calibrate Z"
+#define MSG_DELTA_CALIBRATE_CENTER          "Calibrate Center"
 
 #endif // LANGUAGE_AN_H
